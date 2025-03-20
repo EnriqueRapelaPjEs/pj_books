@@ -204,6 +204,8 @@ GEM
       rspec-mocks (~> 3.13)
       rspec-support (~> 3.13)
     rspec-support (3.13.2)
+    shoulda-matchers (5.3.0)
+      activesupport (>= 5.2.0)
     stringio (3.1.5)
     stronger_parameters (2.23.1)
       actionpack (>= 5.0)
@@ -241,6 +243,7 @@ DEPENDENCIES
   puma (~> 5.0)
   rails (~> 7.0.4)
   rspec-rails (~> 6.0, >= 6.0.3)
+  shoulda-matchers (~> 5.0)
   stronger_parameters (~> 2.16)
   tzinfo-data
   wor-paginate (= 0.2.0)

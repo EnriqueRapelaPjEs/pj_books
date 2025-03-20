@@ -47,6 +47,7 @@ gem 'stronger_parameters', '~> 2.16'
 # gem "rack-cors"
 group :test do
   gem 'rspec-rails', '~> 6.0', '>= 6.0.3'
+  gem 'shoulda-matchers', '~> 5.0'
 end
 
 group :development, :test do
