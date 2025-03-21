@@ -54,7 +54,6 @@ module Api
                       publisher: Parameters.string,
                       year:      Parameters.integer)
       end
-
     end
   end
 end

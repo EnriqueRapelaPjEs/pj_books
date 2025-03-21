@@ -1,7 +1,7 @@
 class Error
   attr_accessor :code, :description, :status_code, :message, :fields, :request_id
 
-  def initialize(code, description, status_code, message, fields: [], request_id: nil, metadata: {})
+  def initialize(code, description, status_code, message, fields: [], request_id: nil, metadata: {}) # rubocop:disable Metrics/ParameterLists
     @code = code
     @description = description
     @status_code = status_code
@@ -35,7 +35,7 @@ class Error
         'FIELD_VALIDATION_ERROR',
         :unprocessable_entity,
         'One or more fields are invalid',
-        fields: model.errors.details.map { |field, errors| ErrorField.from_error_detail(field, errors) } # rubocop:disable Layout/LineLength
+        fields: model.errors.details.map { |field, errors| ErrorField.from_error_detail(field, errors) }
       )
     end
 
