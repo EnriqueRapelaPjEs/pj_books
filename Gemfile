@@ -37,6 +37,9 @@ gem 'wor-paginate', '= 0.2.0'
 # Serializer gem
 gem 'active_model_serializers', '~> 0.10.13'
 
+# Strong parameters
+gem 'stronger_parameters', '~> 2.16'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
@@ -44,6 +47,7 @@ gem 'active_model_serializers', '~> 0.10.13'
 # gem "rack-cors"
 group :test do
   gem 'rspec-rails', '~> 6.0', '>= 6.0.3'
+  gem 'shoulda-matchers', '~> 5.0'
 end
 
 group :development, :test do
@@ -52,6 +56,11 @@ group :development, :test do
 
   gem 'factory_bot_rails', '~> 6.2'
   gem 'faker', '~> 2.6'
+
+  gem 'rubocop', '~> 1.40'
+  gem 'rubocop-faker', '~> 0.2'
+  gem 'rubocop-rails', '>= 2.19', '< 2.20'
+  gem 'rubocop-rspec', '~> 2.20'
 end
 
 group :development do
