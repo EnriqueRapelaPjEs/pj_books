@@ -97,6 +97,7 @@ GEM
       activesupport (>= 6.1)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
+    interactor (3.1.2)
     io-console (0.8.0)
     irb (1.15.1)
       pp (>= 0.6.0)
@@ -285,6 +286,7 @@ DEPENDENCIES
   debug
   factory_bot_rails (~> 6.2)
   faker (~> 2.6)
+  interactor (~> 3.0)
   pg (~> 1.0)
   puma (~> 5.0)
   rails (~> 7.0.4)

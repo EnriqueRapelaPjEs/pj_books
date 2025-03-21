@@ -40,6 +40,9 @@ gem 'active_model_serializers', '~> 0.10.13'
 # Strong parameters
 gem 'stronger_parameters', '~> 2.16'
 
+# Interactor gem
+gem 'interactor', '~> 3.0'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 

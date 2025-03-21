@@ -61,5 +61,14 @@ class Error
         metadata: metadata
       )
     end
+
+    def book_already_rented
+      new(
+        1008,
+        'BOOK_ALREADY_RENTED',
+        :bad_request,
+        'Book is already rented'
+      )
+    end
   end
 end
