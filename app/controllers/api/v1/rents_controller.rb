@@ -24,10 +24,9 @@ module Api
 
       def update
         result = ::Books::CheckBookAvailability.call(rent_update_params)
-        if result.success? && rent.update(rent_update_params)
-          render json: rent,
-                 serializer: Rents::ShowSerializer,
-                 status: :created
+
+        if result.success?
+          handle_successful_update
         else
           render_error(result.error)
         end
@@ -62,6 +61,16 @@ module Api
           start_date: Parameters.date,
           end_date: Parameters.date
         )
+      end
+
+      def handle_successful_update
+        if rent.update(rent_update_params)
+          render json: rent,
+                 serializer: Rents::ShowSerializer,
+                 status: :created
+        else
+          render_validation_error(rent)
+        end
       end
     end
   end
