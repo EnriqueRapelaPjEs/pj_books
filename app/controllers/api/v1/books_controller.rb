@@ -39,6 +39,15 @@ module Api
         end
       end
 
+      def by_isbn
+        result = Books::ByIsbn.call(params.permit(isbn: Parameters.string))
+        if result.success?
+          render json: result.book_hash
+        else
+          render_error(result.error)
+        end
+      end
+
       private
 
       def book

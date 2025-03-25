@@ -73,6 +73,7 @@ GEM
       tzinfo (~> 2.0)
     ast (2.4.3)
     base64 (0.2.0)
+    bigdecimal (3.1.9)
     bootsnap (1.18.4)
       msgpack (~> 1.2)
     builder (3.3.0)
@@ -80,6 +81,7 @@ GEM
       activesupport
     concurrent-ruby (1.3.4)
     crass (1.0.6)
+    csv (3.3.3)
     date (3.4.1)
     debug (1.10.0)
       irb (~> 1.10)
@@ -95,6 +97,10 @@ GEM
       i18n (>= 1.8.11, < 2)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    httparty (0.22.0)
+      csv
+      mini_mime (>= 1.0.0)
+      multi_xml (>= 0.5.2)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
     interactor (3.1.2)
@@ -120,6 +126,8 @@ GEM
     mini_mime (1.1.5)
     minitest (5.25.5)
     msgpack (1.8.0)
+    multi_xml (0.7.1)
+      bigdecimal (~> 3.1)
     net-imap (0.5.6)
       date
       net-protocol
@@ -286,6 +294,7 @@ DEPENDENCIES
   debug
   factory_bot_rails (~> 6.2)
   faker (~> 2.6)
+  httparty
   interactor (~> 3.0)
   pg (~> 1.0)
   puma (~> 5.0)

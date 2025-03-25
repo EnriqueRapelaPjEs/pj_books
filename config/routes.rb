@@ -6,7 +6,11 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :books
+      resources :books do
+        collection do
+          get :by_isbn
+        end
+      end
       resources :users
       resources :rents
     end
