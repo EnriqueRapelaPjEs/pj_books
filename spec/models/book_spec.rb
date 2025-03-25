@@ -12,6 +12,8 @@ RSpec.describe Book, type: :model do
   it { is_expected.to validate_presence_of(:publisher) }
   it { is_expected.to validate_presence_of(:year) }
 
+  it { is_expected.to have_many(:book_suggestions) }
+
   it { is_expected.to validate_numericality_of(:year).is_greater_than(0) }
 
   it { is_expected.to validate_uniqueness_of(:title).scoped_to(:author) }
