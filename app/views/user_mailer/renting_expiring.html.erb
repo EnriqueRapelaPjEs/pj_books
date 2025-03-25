@@ -1,0 +1,18 @@
+<h1>Hola <%= @user.name %>, el alquiler de tu libro finaliza hoy 📚</h1>
+
+<p><strong>Fecha de finalización del alquiler:</strong> <%= @rent.end_date.strftime("%d/%m/%Y") %></p>
+
+<h2>📖 Detalles del libro</h2>
+<ul>
+  <li><strong>Título:</strong> <%= @book.title %></li>
+  <li><strong>Autor:</strong> <%= @book.author %></li>
+  <li><strong>Género:</strong> <%= @book.genre %></li>
+</ul>
+
+<h2>📅 Fechas del alquiler</h2>
+<ul>
+  <li><strong>Inicio:</strong> <%= @rent.start_date.strftime("%d/%m/%Y") %></li>
+  <li><strong>Fin:</strong> <%= @rent.end_date.strftime("%d/%m/%Y") %></li>
+</ul>
+
+<p>No olvides devolver el libro a tiempo para no perder tu reputación 📚</p>
