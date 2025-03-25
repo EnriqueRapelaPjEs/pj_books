@@ -1,0 +1,18 @@
+<h1>Hola <%= @user.name %>, tu alquiler ha sido confirmado 📚</h1>
+
+<p><strong>Fecha de creación del alquiler:</strong> <%= @rent.created_at.strftime("%d/%m/%Y") %></p>
+
+<h2>📖 Detalles del libro</h2>
+<ul>
+  <li><strong>Título:</strong> <%= @book.title %></li>
+  <li><strong>Autor:</strong> <%= @book.author %></li>
+  <li><strong>Género:</strong> <%= @book.genre %></li>
+</ul>
+
+<h2>📅 Fechas del alquiler</h2>
+<ul>
+  <li><strong>Inicio:</strong> <%= @rent.start_date.strftime("%d/%m/%Y") %></li>
+  <li><strong>Fin:</strong> <%= @rent.end_date.strftime("%d/%m/%Y") %></li>
+</ul>
+
+<p>¡Disfruta tu lectura! 📚</p>
