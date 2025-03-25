@@ -62,12 +62,12 @@ class Error
       )
     end
 
-    def book_already_rented
+    def book_already_rented(book_id)
       new(
         1008,
         'BOOK_ALREADY_RENTED',
         :bad_request,
-        'Book is already rented'
+        "Book id #{book_id} is already rented"
       )
     end
   end
