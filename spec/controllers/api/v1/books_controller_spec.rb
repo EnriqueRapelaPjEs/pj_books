@@ -176,4 +176,53 @@ describe Api::V1::BooksController do
       include_examples 'not found'
     end
   end
+
+  describe 'GET #book_data_by_isbn' do
+    subject(:http_request) { get :book_data_by_isbn, params: { isbn: isbn } }
+
+    let(:isbn) { '9780123456789' }
+    let(:service_instance) { instance_double(OpenLibrary::Service) }
+    let(:book_data) do
+      { 'ISBN:9780123456789' => { 'title' => 'Example Book', 'subtitle' => 'Subtitle', 'number_of_pages' => 100,
+     'authors' => [{ 'name' => 'Author Name' }] } }
+    end
+
+    context 'when success' do
+      before do
+        allow(OpenLibrary::Service).to receive(:new).and_return(service_instance)
+        allow(service_instance).to receive(:fetch).with(isbn).and_return(book_data)
+
+        http_request
+      end
+
+      it 'responds with status 200' do
+        expect(response).to have_http_status(:ok)
+      end
+
+      it 'returns the book data with OpenLibrary::BookHash PORO' do
+        expect(response_body).to eq({
+                                      'ISBN' => isbn,
+                                      'title' => 'Example Book',
+                                      'subtitle' => 'Subtitle',
+                                      'number_of_pages' => 100,
+                                      'authors' => 'Author Name'
+                                    })
+      end
+    end
+
+    context 'when the book is not found' do
+      let(:isbn) { '9780123456789' }
+
+      before do
+        allow(OpenLibrary::Service).to receive(:new).and_return(service_instance)
+        allow(service_instance).to receive(:fetch).with(isbn).and_return({})
+
+        http_request
+      end
+
+      it 'responds with status 404' do
+        expect(response).to have_http_status(:not_found)
+      end
+    end
+  end
 end
