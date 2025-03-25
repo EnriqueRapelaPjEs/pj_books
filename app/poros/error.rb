@@ -70,5 +70,14 @@ class Error
         "Book id #{book_id} is already rented"
       )
     end
+
+    def book_not_found(isbn)
+      new(
+        1009,
+        'BOOK_NOT_FOUND',
+        :not_found,
+        "Book with ISBN #{isbn} not found"
+      )
+    end
   end
 end
