@@ -10,9 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2025_03_21_094253) do
+ActiveRecord::Schema[7.0].define(version: 2025_03_25_103437) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "book_suggestions", force: :cascade do |t|
+    t.string "synopsis"
+    t.float "price"
+    t.string "link", null: false
+    t.bigint "book_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_book_suggestions_on_book_id"
+    t.index ["user_id"], name: "index_book_suggestions_on_user_id"
+  end
 
   create_table "books", force: :cascade do |t|
     t.string "genre"
@@ -44,6 +56,8 @@ ActiveRecord::Schema[7.0].define(version: 2025_03_21_094253) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "book_suggestions", "books"
+  add_foreign_key "book_suggestions", "users"
   add_foreign_key "rents", "books"
   add_foreign_key "rents", "users"
 end
