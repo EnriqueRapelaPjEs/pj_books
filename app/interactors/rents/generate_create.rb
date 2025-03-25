@@ -3,6 +3,7 @@ module Rents
     include Interactor::Organizer
 
     organize Books::CheckBookAvailability,
-             Create
+             Create,
+             SendEmail
   end
 end
