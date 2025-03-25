@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       end
       resources :users
       resources :rents
+      resources :book_suggestions
     end
   end
 end
