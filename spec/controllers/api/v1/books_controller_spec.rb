@@ -177,8 +177,8 @@ describe Api::V1::BooksController do
     end
   end
 
-  describe 'GET #book_data_by_isbn' do
-    subject(:http_request) { get :book_data_by_isbn, params: { isbn: isbn } }
+  describe 'GET #by_isbn' do
+    subject(:http_request) { get :by_isbn, params: { isbn: isbn } }
 
     let(:isbn) { '9780123456789' }
     let(:service_instance) { instance_double(OpenLibrary::Service) }

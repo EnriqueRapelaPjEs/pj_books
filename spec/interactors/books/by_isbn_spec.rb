@@ -1,4 +1,4 @@
-describe Books::BookDataByIsbn do
+describe Books::ByIsbn do
   describe '#call' do
     subject(:generate_create) do
       described_class.call(isbn: isbn)

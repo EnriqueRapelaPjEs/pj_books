@@ -1,5 +1,5 @@
 module Books
-  class BookDataByIsbn
+  class ByIsbn
     include Interactor::Organizer
 
     organize BookData, TransformBookData

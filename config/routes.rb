@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :books do
         collection do
-          get :book_data_by_isbn
+          get :by_isbn
         end
       end
       resources :users
