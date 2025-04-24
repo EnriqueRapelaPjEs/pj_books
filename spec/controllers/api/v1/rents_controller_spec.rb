@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 describe Api::V1::RentsController do
+  include ActiveJob::TestHelper
+
+  before do
+    ActiveJob::Base.queue_adapter = :test
+  end
+
   describe 'GET #index' do
     subject(:http_request) { get :index }
 
@@ -77,6 +83,10 @@ describe Api::V1::RentsController do
 
       it 'responds with status 201' do
         expect(http_request).to have_http_status(:created)
+      end
+
+      it 'enqueues the email job' do
+        expect { http_request }.to have_enqueued_job(SendRentConfirmationEmailJob)
       end
     end
 
@@ -231,5 +241,9 @@ describe Api::V1::RentsController do
 
       include_examples 'not found'
     end
+  end
+
+  after do
+    clear_enqueued_jobs
   end
 end

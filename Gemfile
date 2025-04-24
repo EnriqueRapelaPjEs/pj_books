@@ -13,6 +13,9 @@ gem "pg", "~> 1.0"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
+# Sidekiq
+gem 'sidekiq', '< 6'
+
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
 
@@ -67,6 +70,8 @@ group :development, :test do
   gem 'rubocop-faker', '~> 0.2'
   gem 'rubocop-rails', '>= 2.19', '< 2.20'
   gem 'rubocop-rspec', '~> 2.20'
+
+  gem 'dotenv'
 end
 
 group :development do
