@@ -1,2 +1,9 @@
 :queues:
   - default
+
+:scheduler:
+  check_renting_expiry:
+    cron: "0 13 * * *"
+    class: "CheckRentingExpiryWorker"
+    queue: default
+    description: "Revisa los rentings que van a finalizar"
